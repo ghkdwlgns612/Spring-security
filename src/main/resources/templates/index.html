@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<div th:if="${user} != null" class="dropdown text-end me-auto">
+    <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1"
+       data-bs-toggle="dropdown" aria-expanded="false">
+        <img th:src="${user.picture}" th:alt="${user.nickname}" width="32" height="32" class="rounded-circle">
+        <strong th:text="${user.nickname}"></strong>
+    </a>
+    <ul class=" dropdown-menu text-small" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="/">Signed in as <strong th:text="${user.nickname}"></strong></a>
+        </li>
+        <li><a class="dropdown-item" href="/">Profile</a></li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#sign-out" href="#">Sign out</a>
+        </li>
+    </ul>
+</div>
+<div th:if="${user == null}" class="me-auto">
+    <button type="button" class="btn btn-primary" role="button"
+            onclick="location.href='/oauth2/authorize/intra42'">42 Login
+    </button>
+</div>
+</body>
+</html>
