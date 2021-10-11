@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import shop.page.shoppingmall.domain.Role;
 import shop.page.shoppingmall.domain.User;
-import shop.page.shoppingmall.repository.RoleRepository;
 import shop.page.shoppingmall.service.UserService;
 
 import java.net.URI;
@@ -30,12 +28,12 @@ public class UserResource {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/save").toUriString());
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
-
-    @PostMapping("/role/save")
-    public ResponseEntity<Role> saveRole(@RequestBody Role role) {
-        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
-        return ResponseEntity.created(uri).body(userService.saveRole(role));
-    }
+//
+//    @PostMapping("/role/save")
+//    public ResponseEntity<Role> saveRole(@RequestBody Role role) {
+//        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/role/save").toUriString());
+//        return ResponseEntity.created(uri).body(userService.saveRole(role));
+//    }
 
     @PostMapping("/role/addtouser")
     public ResponseEntity<?> addRoleToUser(@RequestBody addRoleToUserForm form) {
